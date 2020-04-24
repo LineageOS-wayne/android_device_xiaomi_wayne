@@ -32,5 +32,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     fstab.qcom
 
+# Wifi
+PRODUCT_PACKAGES += \
+    WayneWifiOverlay
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
