@@ -111,6 +111,10 @@ PRODUCT_PACKAGES += \
     libyuv.vendor \
     vendor.qti.hardware.camera.device@1.0:64
 
+# Configstore
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # ConsumerIR
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service.wayne
