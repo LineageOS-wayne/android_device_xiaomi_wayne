@@ -15,6 +15,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     fstab.qcom
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 # Wifi
 PRODUCT_PACKAGES += \
     WayneWifiOverlay
