@@ -98,6 +98,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5:64 \
     android.hardware.camera.provider@2.6:64 \
     libdng_sdk.vendor \
+    libpiex_shim \
     vendor.qti.hardware.camera.device@1.0:64
 
 # ConsumerIR
@@ -418,10 +419,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
-
-# VNDK
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm/arch-arm-armv7-a-neon/shared/vndk-core/libpiex.so:$(TARGET_COPY_OUT_VENDOR)/lib/libpiex-v29.so
 
 # WiFi
 PRODUCT_PACKAGES += \
