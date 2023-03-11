@@ -41,6 +41,8 @@
 #include "vendor_init.h"
 #include "property_service.h"
 
+using android::base::GetProperty;
+
 char const *heapstartsize;
 char const *heapgrowthlimit;
 char const *heapsize;
@@ -92,6 +94,26 @@ void property_override(char const prop[], char const value[], bool add = true)
     }
 }
 
+void setup_model_properties() 
+{
+    std::string_view product = GetProperty("ro.product.name", "");
+    if (product.find("wayne") == std::string::npos) {
+        return;
+    }
+
+    std::ifstream cmdline("/proc/cmdline");
+    std::string buf;
+    while (std::getline(cmdline, buf, ' ')) {
+        if (buf.find("hwversion") != std::string::npos) {
+            cmdline.close();
+            std::string_view hwVersion = buf.substr(10);
+            std::string_view model = (hwVersion == "2.31.0") ? "MI 6X MIKU" : "MI 6X";
+            property_override("ro.product.model", model.data());
+        }
+    }
+    cmdline.close();
+}
+
 void vendor_load_properties()
 {
     check_device();
@@ -102,4 +124,6 @@ void vendor_load_properties()
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
+
+    setup_model_properties();
 }
