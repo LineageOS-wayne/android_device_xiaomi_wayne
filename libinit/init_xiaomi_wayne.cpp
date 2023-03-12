@@ -97,21 +97,21 @@ void property_override(char const prop[], char const value[], bool add = true)
 void setup_model_properties()
 {
     std::string product = GetProperty("ro.product.name", "");
-    if (product.find("wayne") == -1) {
+    if (product.find("wayne") == std::string::npos) {
         return;
     }
 
     std::ifstream cmdline("/proc/cmdline");
     std::string buf;
     while (std::getline(cmdline, buf, ' ')) {
-        if (buf.find("hwversion") != -1) {
+        if (buf.find("hwversion") != std::string::npos) {
             break;
         }
     }
     cmdline.close();
 
-    std::string model = (buf.find("2.31.0") != -1) ? "MI 6X MIKU" : "MI 6X";
-    property_override("ro.product.model", model());
+    std::string model = "MI 6X MIKU";
+    property_override("ro.product.model", model.data());
 }
 
 void vendor_load_properties()
