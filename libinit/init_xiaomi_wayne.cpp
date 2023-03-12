@@ -94,24 +94,24 @@ void property_override(char const prop[], char const value[], bool add = true)
     }
 }
 
-void setup_model_properties() 
+void setup_model_properties()
 {
-    std::string_view product = GetProperty("ro.product.name", "");
-    if (product.find("wayne") == std::string::npos) {
+    std::string product = GetProperty("ro.product.name", "");
+    if (product.find("wayne") == -1) {
         return;
     }
 
     std::ifstream cmdline("/proc/cmdline");
     std::string buf;
     while (std::getline(cmdline, buf, ' ')) {
-        if (buf.find("hwversion") != std::string::npos) {
-            cmdline.close();
-            std::string_view hwVersion = buf.substr(10);
-            std::string_view model = (hwVersion == "2.31.0") ? "MI 6X MIKU" : "MI 6X";
-            property_override("ro.product.model", model.data());
+        if (buf.find("hwversion") != -1) {
+            break;
         }
     }
     cmdline.close();
+
+    std::string model = (buf.find("2.31.0") != -1) ? "MI 6X MIKU" : "MI 6X";
+    property_override("ro.product.model", model());
 }
 
 void vendor_load_properties()
