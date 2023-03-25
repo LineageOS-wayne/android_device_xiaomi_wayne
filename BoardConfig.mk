@@ -9,6 +9,10 @@ include device/xiaomi/wayne-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/wayne
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_wayne
+TARGET_RECOVERY_DEVICE_MODULES := init_wayne
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
