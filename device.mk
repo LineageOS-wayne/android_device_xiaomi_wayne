@@ -16,8 +16,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Declare as non AB device
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
-PRODUCT_COMPRESSED_APEX := false
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
