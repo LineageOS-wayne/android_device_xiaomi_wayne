@@ -1,0 +1,17 @@
+on property:sys.boot_completed=1
+    start set_screen_resolution
+    start set_screen_density
+
+service set_screen_resolution /system/bin/wm size 1200x1920
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service set_screen_density /system/bin/wm density 320
+    class main
+    user root
+    group root system
+    disabled
+    oneshot

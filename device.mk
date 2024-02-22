@@ -249,6 +249,7 @@ PRODUCT_BOOT_JARS += \
 
 # Init
 PRODUCT_PACKAGES += \
+    init.display.rc \
     fstab.qcom \
     init.device.rc \
     init.class_main.sh \
