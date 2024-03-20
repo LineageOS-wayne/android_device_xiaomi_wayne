@@ -10,9 +10,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Declare as non AB device
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
