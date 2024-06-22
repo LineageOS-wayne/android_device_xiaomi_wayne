@@ -100,7 +100,15 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     android.hardware.camera.provider@2.6:64 \
     camera.sdm660 \
+    libcamera_metadata.vendor \
     libdng_sdk.vendor \
+    libexif.vendor \
+    libion.vendor \
+    libjpeg.vendor \
+    liblz4.vendor \
+    libpng.vendor \
+    libutilscallstack.vendor \
+    libyuv.vendor \
     vendor.qti.hardware.camera.device@1.0:64
 
 # ConsumerIR
@@ -206,6 +214,7 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.base@1.0.vendor \
     android.hidl.memory@1.0.vendor \
+    libhidlmemory.vendor \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
@@ -351,7 +360,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.wayne-libperfmgr
+    android.hardware.power-service.wayne-libperfmgr \
+    libpower.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power-libperfmgr/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -367,7 +377,12 @@ PRODUCT_COPY_FILES += \
 
 # QMI
 PRODUCT_PACKAGES += \
-    libjson
+    libcrypto_utils.vendor \
+    libjson \
+    libjsoncpp.vendor \
+    libnetutils.vendor \
+    libsqlite.vendor \
+    libssl.vendor
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -428,6 +443,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-qcom \
+    libwifi-system-iface.vendor \
     libwpa_client \
     WifiOverlay \
     wpa_supplicant \
