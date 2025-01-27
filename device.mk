@@ -84,8 +84,7 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2160
-TARGET_SCREEN_WIDTH := 1080
+TARGET_BOOT_ANIMATION_RES := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
