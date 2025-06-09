@@ -171,6 +171,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/display_id_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_0.xml
 
+
+# Doze
+PRODUCT_PACKAGES += \
+    XiaomiDoze
+
 # DPM
 PRODUCT_PACKAGES += \
     libshim_dpmframework
@@ -325,10 +330,6 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
-
-# Parts
-PRODUCT_PACKAGES += \
-    XiaomiParts
 
 # Power
 PRODUCT_PACKAGES += \
