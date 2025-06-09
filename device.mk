@@ -7,7 +7,7 @@
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-arrow
+    $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -133,14 +133,6 @@ PRODUCT_PACKAGES += \
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Camera
-ifeq ($(ARROW_GAPPS), true)
-PRODUCT_PACKAGES += \
-    GCamGOPrebuilt
-else
-PRODUCT_PACKAGES += \
-    Snap
-endif
-
 PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.camera.device@3.5:64 \
@@ -294,6 +286,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.xiaomi_sdm660
 
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service-sysfs
+
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.1.vendor
@@ -409,6 +406,10 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
+
+# Trust
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
 
 # Vibrator
 PRODUCT_PACKAGES += \
