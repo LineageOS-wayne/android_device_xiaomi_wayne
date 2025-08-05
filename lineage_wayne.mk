@@ -17,14 +17,17 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := wayne
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_MODEL := MI 6X
+PRODUCT_MODEL := LUO-001
 PRODUCT_NAME := lineage_wayne
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
+PRODUCT_CHARACTERISTICS := nosdcard,tablet
+
 TARGET_VENDOR_PRODUCT_NAME := wayne
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="wayne-user 8.1.0 OPM1.171019.011 V9.5.11.0.ODCCNFA release-keys"
+    PRIVATE_BUILD_DESC="wayne-user 8.1.0 OPM1.171019.011 V9.5.11.0.ODCCNFA release-keys" \
+    PRODUCT_NAME="LUO-001"
 
 BUILD_FINGERPRINT := xiaomi/wayne/wayne:8.1.0/OPM1.171019.011/V9.5.11.0.ODCCNFA:user/release-keys
