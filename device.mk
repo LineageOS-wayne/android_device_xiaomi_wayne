@@ -171,6 +171,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/display_id_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_0.xml
 
+# Logo
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/logo/splash.img:install/firmware-update/logo.img
 
 # Doze
 PRODUCT_PACKAGES += \
