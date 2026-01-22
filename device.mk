@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2021 Miku UI
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -7,7 +8,7 @@
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-miku
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -122,7 +123,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor
 
 # Boot animation
-TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1200
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -158,6 +160,8 @@ PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.allocator@3.0-impl \
+    android.hardware.graphics.allocator@4.0-impl \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.memtrack@1.0-impl \
@@ -175,10 +179,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/logo/splash.img:install/firmware-update/logo.img
 
-# Doze
-PRODUCT_PACKAGES += \
-    XiaomiDoze
-
 # DPM
 PRODUCT_PACKAGES += \
     libshim_dpmframework
@@ -187,6 +187,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.clearkey \
     android.hardware.drm@1.4.vendor
+
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio \
+    qcom.fmradio.xml
 
 # fwk-detect
 PRODUCT_PACKAGES += \
@@ -244,15 +251,17 @@ PRODUCT_COPY_FILES += \
 
 # IFAA
 PRODUCT_PACKAGES += \
-    IFAAService \
-    org.ifaa.android.manager
+     IFAAService \
+     org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
     org.ifaa.android.manager
 
+# Indicate the first api level the device has been commercially launched on
+PRODUCT_SHIPPING_API_LEVEL := 27
+
 # Init
 PRODUCT_PACKAGES += \
-    init.display.rc \
     fstab.qcom \
     init.device.rc \
     init.class_main.sh \
@@ -288,11 +297,6 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.xiaomi_sdm660
-
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
-    vendor.lineage.livedisplay@2.0-service-sysfs
 
 # Media
 PRODUCT_PACKAGES += \
@@ -332,10 +336,13 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.xiaomi-libperfmgr \
-    android.hardware.power.stats@1.0-service.mock
+    android.hardware.power-service.xiaomi-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -397,9 +404,6 @@ PRODUCT_PACKAGES += \
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
-# Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 27
-
 # Tetheroffload
 PRODUCT_PACKAGES += \
     ipacm \
@@ -409,9 +413,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 
-# Trust
+# Thermal
 PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+    android.hardware.thermal@2.0-service.xiaomi_sdm660.qti
 
 # Vibrator
 PRODUCT_PACKAGES += \

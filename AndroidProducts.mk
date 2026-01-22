@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2021 lineage UI
 #
 # SPDX-License-Identifier: Apache-2.0
 #

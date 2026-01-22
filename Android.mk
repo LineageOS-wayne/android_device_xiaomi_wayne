@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2021 Miku UI
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -9,6 +10,12 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),wayne)
 
 include $(CLEAR_VARS)
+
+
+# Create symbolic links for msadp
+$(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware; \
+	ln -sf /dev/block/bootdevice/by-name/msadp \
+	$(TARGET_OUT_VENDOR)/firmware/msadp)
 
 WCNSS_INI_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 $(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
@@ -100,7 +107,6 @@ $(EGL_64_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "EGL lib link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf egl/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(EGL_32_SYMLINKS) $(EGL_64_SYMLINKS)
 

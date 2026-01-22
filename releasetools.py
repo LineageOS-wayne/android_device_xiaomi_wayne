@@ -28,4 +28,4 @@ def IncrementalOTA_InstallEnd(info):
 
 def OTA_UpdateFirmware(info):
     info.script.AppendExtra('ui_print("Flashing logo images");')
-    info.script.AppendExtra('package_extract_file("install/firmware-update/logo.img", "/dev/block/bootdevice/by-name/logo");')
+    info.script.AppendExtra('package_extract_file("install/firmware-update/logo.img", "/dev/block/bootdevice/by-name/splash");')
